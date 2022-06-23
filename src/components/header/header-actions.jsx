@@ -1,6 +1,5 @@
-import { BsChevronDown } from 'react-icons/bs';
-import { ReactComponent as SearchIcon } from '../../assets/header/search.svg';
 import { ReactComponent as CartIcon } from '../../assets/header/cart.svg';
+import { ReactComponent as SearchIcon } from '../../assets/header/search.svg';
 import { ReactComponent as UserIcon } from '../../assets/header/user.svg';
 
 const HeaderActions = () => {

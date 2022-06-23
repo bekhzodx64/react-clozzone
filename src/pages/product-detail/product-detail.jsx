@@ -18,9 +18,7 @@ const ProductDetail = () => {
 				setItem(data.item);
 				setLoading(false);
 			});
-	}, []);
-
-	console.log(item);
+	}, [id]);
 
 	return (
 		<div className='pt-[150px] pb-[50px] container'>
