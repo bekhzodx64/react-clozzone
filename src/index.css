@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@layer components {
+	.footer {
+		@apply mt-auto bg-darkAccent pt-[25px] md:pt-[50px];
+	}
+
+	.footer-title {
+		@apply text-base font-medium text-white md:text-xl;
+	}
+
+	.footer-base {
+		@apply bg-darkAccent py-[15px] md:py-[30px];
+	}
+}
