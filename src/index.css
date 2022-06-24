@@ -9,6 +9,62 @@
 }
 
 @layer components {
+	.section {
+		@apply py-5 md:py-12;
+	}
+
+	.rarity-badge {
+		@apply absolute w-40 z-10 text-center py-1 font-bold text-white top-7 -right-10 rotate-45 select-none pointer-events-none;
+	}
+
+	.uncommon {
+		@apply bg-gray-500 shadow-gray-500 shadow;
+	}
+
+	.rare {
+		@apply bg-blue-500 shadow-blue-500 shadow;
+	}
+
+	.epic {
+		@apply bg-violet-600 shadow-violet-600 shadow;
+	}
+
+	.legendary {
+		@apply bg-yellow-400 shadow-yellow-400 shadow;
+	}
+
+	.section-title {
+		@apply text-center text-[26px] uppercase md:text-[44px];
+	}
+
+	.brands-item img {
+		@apply h-full w-full object-scale-down;
+	}
+
+	.brandsPrev {
+		@apply absolute top-1/2 -left-5 z-10 h-7 w-7 -translate-y-1/2 cursor-pointer select-none overflow-hidden rounded-full text-[#9E9E9E];
+	}
+
+	.brandsNext {
+		@apply absolute top-1/2 -right-5 z-10 h-7 w-7 -translate-y-1/2 cursor-pointer select-none overflow-hidden rounded-full text-[#9E9E9E];
+	}
+
+	.btn {
+		@apply border border-accent px-4 py-2 text-[10px] text-accent transition-all lg:text-sm;
+	}
+
+	.btn-hover {
+		@apply bg-accent text-white;
+	}
+
+	.productPrev {
+		@apply flex h-8 w-8 cursor-pointer items-center justify-center bg-[#9B9B9B]/40;
+	}
+
+	.productNext {
+		@apply flex h-8 w-8 cursor-pointer items-center justify-center bg-[#9B9B9B]/40;
+	}
+
 	.footer {
 		@apply mt-auto bg-darkAccent pt-[25px] md:pt-[50px];
 	}
