@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { API_KEY } from '../../config';
 
 const ProductDetail = () => {
-	const { id } = useParams();
+	const { userId } = useParams();
 	const [item, setItem] = useState([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch(`https://fortniteapi.io/v2/items/get?id=${id}&lang=en`, {
+		fetch(`https://fortniteapi.io/v2/items/get?id=${userId}&lang=en`, {
 			headers: {
 				Authorization: API_KEY,
 			},
@@ -18,7 +18,7 @@ const ProductDetail = () => {
 				setItem(data.item);
 				setLoading(false);
 			});
-	}, [id]);
+	}, [userId]);
 
 	return (
 		<div className='pt-[150px] pb-[50px] container'>

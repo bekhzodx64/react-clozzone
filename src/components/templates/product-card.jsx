@@ -4,13 +4,21 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RarityBadge from '../templates/rarity-badge';
+import { useNavigate } from 'react-router-dom';
 
 SwiperCore.use([Navigation]);
 
 const ProductCard = ({ good }) => {
-	const { displayName, displayType } = good;
+	const navigate = useNavigate();
+	const { displayName, displayType, mainId } = good;
 	const { finalPrice } = good.price;
 	const { id } = good.rarity;
+
+	console.log(good);
+
+	const onNavigateHandler = () => {
+		navigate(`/${mainId}`);
+	};
 
 	return (
 		<div className='flex  w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden'>
@@ -47,8 +55,10 @@ const ProductCard = ({ good }) => {
 			</div>
 			<div className='p-[10px]'>
 				<div className='mb-[10px] space-y-[5px]'>
-					<h3 className='text-sm font-semibold uppercase line-clamp-2 leading-none lg:text-lg h-14'>
-						{displayName.toLowerCase()}
+					<h3
+						className='text-sm font-semibold uppercase line-clamp-2 leading-none lg:text-lg h-14'
+						onClick={onNavigateHandler}>
+						{displayName}
 					</h3>
 					<p
 						className='text-[9px] text-[#666666] line-clamp-1 lg:text-sm'
