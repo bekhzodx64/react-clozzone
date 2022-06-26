@@ -56,7 +56,7 @@ const ProductCard = ({ good }) => {
 			<div className='p-[10px]'>
 				<div className='mb-[10px] space-y-[5px]'>
 					<h3
-						className='text-sm font-semibold uppercase line-clamp-2 leading-none lg:text-lg h-14'
+						className='text-sm font-semibold uppercase line-clamp-2 leading-none lg:text-lg max-h-14 cursor-pointer hover:underline decoration-accent decoration-2 text-accent'
 						onClick={onNavigateHandler}>
 						{displayName}
 					</h3>

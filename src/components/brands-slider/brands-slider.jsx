@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
@@ -7,6 +6,7 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { API_KEY } from '../../config';
 import BrandsItem from './brands-item';
+import Loader from '../templates/loader';
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -36,9 +36,7 @@ const BrandsSlider = () => {
 			<h2 className='section-title'>бренды</h2>
 
 			{loading ? (
-				<div className='flex justify-center h-[150px] items-center'>
-					<AiOutlineLoading3Quarters className='animate-spin text-3xl text-accent' />
-				</div>
+				<Loader />
 			) : (
 				<div className='relative'>
 					<Swiper
