@@ -5,6 +5,8 @@ import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RarityBadge from '../templates/rarity-badge';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import CartContext from '../../store/CartContext';
 
 SwiperCore.use([Navigation]);
 
@@ -14,7 +16,9 @@ const ProductCard = ({ good }) => {
 	const { finalPrice } = good.price;
 	const { id } = good.rarity;
 
-	console.log(good);
+	const { addItemToCart } = useContext(CartContext);
+
+	const addProductToCart = () => addItemToCart(good);
 
 	const onNavigateHandler = () => {
 		navigate(`/${mainId}`);
@@ -73,7 +77,7 @@ const ProductCard = ({ good }) => {
 				</div>
 				<button
 					type='button'
-					// onClick={() => addItem(item)}
+					onClick={addProductToCart}
 					className='btn hover:btn-hover'>
 					Добавить в корзину
 				</button>
