@@ -65,6 +65,74 @@
 		@apply flex h-8 w-8 cursor-pointer items-center justify-center bg-[#9B9B9B]/40;
 	}
 
+	.product-name {
+		@apply text-2xl font-Roboto font-bold uppercase;
+	}
+
+	.product-detail {
+		@apply font-Roboto space-x-[10px] basis-1/2 grow;
+	}
+
+	.product-detail span {
+		@apply text-[#666666];
+	}
+
+	.product-description {
+		@apply text-sm text-[#666666];
+	}
+
+	.product-price {
+		@apply text-accent text-[22px] border border-accent font-bold flex items-center py-3 px-5 space-x-[10px] justify-center;
+	}
+
+	.product-price p {
+		@apply text-[28px] space-x-[5px] flex;
+	}
+
+	.product-qty {
+		@apply space-x-[10px] flex items-center flex-grow h-[50px];
+	}
+
+	.product-qty__button {
+		@apply flex items-center flex-grow h-full;
+	}
+
+	.product-qty__button button {
+		@apply w-10 h-[50px];
+	}
+
+	.product-qty__button p {
+		@apply flex-grow text-lg flex space-x-[5px] justify-center border-y border-[#C4C4C4] h-full items-center;
+	}
+
+	.product-size {
+		@apply text-accent text-[22px] font-bold flex space-x-2;
+	}
+
+	.product-size span {
+		@apply uppercase;
+	}
+
+	.product-form__sizes {
+		@apply flex items-center space-x-[10px] uppercase text-base;
+	}
+
+	.product-form__sizes input {
+		@apply appearance-none w-3 sm:w-4 h-3 sm:h-4 border border-[#666666] rounded-full indeterminate:border-[#666666] checked:bg-accent checked:border-accent cursor-pointer;
+	}
+
+	.swiper-wrapper .swiper-slide-thumb-active {
+		@apply bg-accent transition-all;
+	}
+
+	.breadcrumbs {
+		@apply text-[10px] lg:text-[15px] flex space-x-1 lg:space-x-2 flex-wrap;
+	}
+
+	.breadcrumbs li {
+		@apply after:content-['/'] after:ml-1 lg:after:ml-2 last:after:content-none;
+	}
+
 	.footer {
 		@apply mt-auto bg-darkAccent pt-[25px] md:pt-[50px];
 	}

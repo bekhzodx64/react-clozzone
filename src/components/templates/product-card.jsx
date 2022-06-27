@@ -21,7 +21,7 @@ const ProductCard = ({ good }) => {
 	};
 
 	return (
-		<div className='flex  w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden'>
+		<div className='flex w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden'>
 			<div className='h-full grow bg-[#EBEBEB]'>
 				<Swiper
 					className='relative h-full select-none'
@@ -56,7 +56,8 @@ const ProductCard = ({ good }) => {
 			<div className='p-[10px]'>
 				<div className='mb-[10px] space-y-[5px]'>
 					<h3
-						className='text-sm font-semibold uppercase line-clamp-2 leading-none lg:text-lg max-h-14 cursor-pointer hover:underline decoration-accent decoration-2 text-accent'
+						className='text-sm font-semibold uppercase line-clamp-1 leading-none lg:text-lg cursor-pointer hover:underline decoration-accent decoration-2 text-accent'
+						title={displayName}
 						onClick={onNavigateHandler}>
 						{displayName}
 					</h3>
