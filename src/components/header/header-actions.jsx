@@ -2,7 +2,7 @@ import { ReactComponent as CartIcon } from '../../assets/header/cart.svg';
 import { ReactComponent as SearchIcon } from '../../assets/header/search.svg';
 import { ReactComponent as UserIcon } from '../../assets/header/user.svg';
 
-const HeaderActions = () => {
+const HeaderActions = ({ showCartHandler }) => {
 	return (
 		<ul className='justify-self-end col-span-4 flex space-x-5 items-center'>
 			<li className='w-[22px] lg:w-auto'>
@@ -11,7 +11,7 @@ const HeaderActions = () => {
 				</button>
 			</li>
 			<li className='w-[22px] lg:w-auto'>
-				<button type='button' className='block'>
+				<button type='button' className='block' onClick={showCartHandler}>
 					<CartIcon />
 				</button>
 			</li>
