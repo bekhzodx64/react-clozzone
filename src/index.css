@@ -4,7 +4,14 @@
 
 @layer base {
 	::-webkit-scrollbar {
-		display: none;
+		@apply bg-white w-4;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border: 5px solid transparent;
+		border-radius: 100px;
+		background-clip: content-box;
+		@apply bg-gray-300;
 	}
 }
 
@@ -131,6 +138,38 @@
 
 	.breadcrumbs li {
 		@apply after:content-['/'] after:ml-1 lg:after:ml-2 last:after:content-none;
+	}
+
+	.product-size {
+		@apply text-accent text-[22px] font-bold flex space-x-2;
+	}
+
+	.product-size span {
+		@apply uppercase;
+	}
+
+	.product-form__sizes {
+		@apply flex items-center space-x-[10px] uppercase text-base;
+	}
+
+	.product-form__sizes input {
+		@apply appearance-none w-3 sm:w-4 h-3 sm:h-4 border border-[#666666] rounded-full indeterminate:border-[#666666] checked:bg-accent checked:border-accent cursor-pointer;
+	}
+
+	.filter-checkbox {
+		@apply uppercase;
+	}
+
+	.filter-checkbox li {
+		@apply flex items-center space-x-2;
+	}
+
+	.filter-checkbox > li > input {
+		@apply appearance-none w-4 h-4 border border-[#666666] checked:bg-accent checked:border-accent outline-none cursor-pointer;
+	}
+
+	.filter-checkbox > li > label {
+		@apply cursor-pointer;
 	}
 
 	.footer {

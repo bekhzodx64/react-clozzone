@@ -46,15 +46,16 @@ const ProductCard = ({ good }) => {
 							</div>
 						</SwiperSlide>
 					))}
-
-					<div className='absolute top-[10px] left-[10px] z-10 flex space-x-[5px] text-xl text-white'>
-						<div className='productPrev'>
-							<BsChevronLeft />
+					{good.granted.length > 1 ? (
+						<div className='absolute top-[10px] left-[10px] z-10 flex space-x-[5px] text-xl text-white'>
+							<div className='productPrev'>
+								<BsChevronLeft />
+							</div>
+							<div className='productNext'>
+								<BsChevronRight />
+							</div>
 						</div>
-						<div className='productNext'>
-							<BsChevronRight />
-						</div>
-					</div>
+					) : null}
 				</Swiper>
 			</div>
 			<div className='p-[10px]'>
