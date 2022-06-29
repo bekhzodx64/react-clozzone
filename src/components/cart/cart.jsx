@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import CartContext from '../../store/CartContext';
 
 const Cart = ({ showCartHandler }) => {
-	const { cartItems, addItemToCart, removeItemToCart, clearItemFromCart } =
+	const { cartItems, addItemToCart, removeItemFromCart, clearItemFromCart } =
 		useContext(CartContext);
 
 	console.log(cartItems);
@@ -35,7 +35,7 @@ const Cart = ({ showCartHandler }) => {
 								key={item.mainId}
 								cartItem={item}
 								addItemToCart={addItemToCart}
-								removeItemToCart={removeItemToCart}
+								removeItemFromCart={removeItemFromCart}
 								clearItemFromCart={clearItemFromCart}
 							/>
 						))}

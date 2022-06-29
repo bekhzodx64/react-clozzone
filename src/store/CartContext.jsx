@@ -45,6 +45,7 @@ function clearCartItem(cartItems, cartItemToClear) {
 
 const CartContext = createContext({
 	cartItems: [],
+	searchItems: [],
 	addItemToCart: () => {},
 	removeItemFromCart: () => {},
 	clearItemFromCart: () => {},
@@ -52,12 +53,13 @@ const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
+	const [searchItems, setSearchItems] = useState([]);
 
 	const addItemToCart = (productToAdd) => {
 		setCartItems(addCartItem(cartItems, productToAdd));
 	};
 
-	const removeItemToCart = (cartItemToRemove) => {
+	const removeItemFromCart = (cartItemToRemove) => {
 		setCartItems(removeCartItem(cartItems, cartItemToRemove));
 	};
 
@@ -67,8 +69,9 @@ export const CartProvider = ({ children }) => {
 
 	const value = {
 		cartItems,
+		searchItems,
 		addItemToCart,
-		removeItemToCart,
+		removeItemFromCart,
 		clearItemFromCart,
 	};
 

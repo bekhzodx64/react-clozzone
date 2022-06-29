@@ -3,21 +3,27 @@ import Loader from '../../components/templates/loader';
 import ProductCard from '../../components/templates/product-card';
 import { API_KEY } from '../../config';
 import Pagination from '../../components/pagination/pagination';
+import { useContext } from 'react';
+import CartContext from '../../store/CartContext';
 
 const AllProducts = () => {
 	const [goods, setGoods] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [goodsPerPage] = useState(9);
+	const [searchField, setSearchField] = useState('');
 
 	const lastGoodsIndex = currentPage * goodsPerPage;
 	const firstGoodsIndex = lastGoodsIndex - goodsPerPage;
 	const currentGoods = goods.slice(firstGoodsIndex, lastGoodsIndex);
 
+	const { searchItems } = useContext(CartContext);
+
+	console.log(searchItems);
+
 	const paginate = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
-
 	const prevPage = () => setCurrentPage((prev) => prev - 1);
 	const nextPage = () => setCurrentPage((prev) => prev + 1);
 
@@ -33,6 +39,20 @@ const AllProducts = () => {
 				setLoading(false);
 			});
 	}, []);
+
+	const onSearchChange = (event) => {
+		const searchFieldString = event.target.value.toLowerCase();
+		setSearchField(searchFieldString);
+		console.log(searchFieldString);
+	};
+
+	const handleSearch = () => {
+		return goods.filter((good) => {
+			return good.displayName.toLowerCase().includes(searchField);
+		});
+	};
+
+	const filteredProducts = handleSearch();
 
 	return (
 		<div className='container section space-y-5 lg:space-y-10 pt-28'>
@@ -55,6 +75,7 @@ const AllProducts = () => {
 								type='search'
 								className='bg-[#EBEBEB] outline-none placeholder:italic text-xs w-full px-4 py-[18px]'
 								placeholder='Поиск...'
+								onChange={onSearchChange}
 							/>
 							<button className='hidden'>
 								<img src='./img/searchFilter.svg' alt='search' />
@@ -269,9 +290,13 @@ const AllProducts = () => {
 						<Loader />
 					) : (
 						<div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-[30px] place-items-center'>
-							{currentGoods.map((good) => (
-								<ProductCard key={good.mainId} good={good} />
-							))}
+							{currentGoods
+								.filter((good) => {
+									return good.displayName.toLowerCase().includes(searchField);
+								})
+								.map((good) => (
+									<ProductCard key={good.mainId} good={good} />
+								))}
 						</div>
 					)}
 				</div>

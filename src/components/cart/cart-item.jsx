@@ -3,7 +3,7 @@ import { AiFillDelete } from 'react-icons/ai';
 const CartItem = ({
 	cartItem,
 	addItemToCart,
-	removeItemToCart,
+	removeItemFromCart,
 	clearItemFromCart,
 }) => {
 	const { displayName, displayDescription, quantity } = cartItem;
@@ -15,7 +15,7 @@ const CartItem = ({
 	};
 
 	const decrementCartItem = () => {
-		removeItemToCart(cartItem);
+		removeItemFromCart(cartItem);
 	};
 
 	const deleteItemFromCart = () => {
