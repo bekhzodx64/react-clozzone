@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
+import AllProducts from './pages/all-products/all-products';
 import Home from './pages/home/home';
 import ProductDetail from './pages/product-detail/product-detail';
-import AllProducts from './pages/all-products/all-products';
 
 const App = () => {
 	return (

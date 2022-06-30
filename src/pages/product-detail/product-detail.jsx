@@ -1,13 +1,11 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import 'swiper/css';
-import Loader from '../../components/templates/loader';
-import { API_KEY } from '../../config';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Thumbs } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/thumbs';
-
-import { Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Loader from '../../components/templates/loader';
+import { API_KEY } from '../../config';
 
 const ProductDetail = () => {
 	const { userId } = useParams();
@@ -166,29 +164,6 @@ const ProductDetail = () => {
 									</div>
 								</div>
 							</div>
-
-							{/* <!-- 5 -->
-					<div className="font-Roboto space-y-[10px]">
-						<div className="product-size">
-							<h3>Размер:</h3>
-							<span>xxl</span>
-						</div>
-						<form className="product-form__sizes">
-							<input type="radio" id="xs" name="color" value="xs">
-							<label for="xs">xs</label><br>
-							<input type="radio" id="s" name="color" value="s">
-							<label for="s">s</label><br>
-							<input type="radio" id="m" name="color" value="m">
-							<label for="m">m</label>
-							<input type="radio" id="l" name="color" value="l">
-							<label for="l">l</label>
-							<input type="radio" id="xl" name="color" value="xl">
-							<label for="xl">xl</label>
-							<input type="radio" id="xxl" name="color" value="xxl">
-							<label for="xxl">xxl</label>
-						</form>
-					</div>
-					<!-- /5 --> */}
 
 							<div className='font-Roboto flex justify-center lg:justify-start'>
 								<button

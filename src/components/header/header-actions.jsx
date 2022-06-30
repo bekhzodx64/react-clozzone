@@ -32,7 +32,6 @@ const HeaderActions = ({ showCartHandler }) => {
 
 	const onInputChange = (e) => {
 		const inputFieldString = e.target.value.toLowerCase();
-		console.log(inputFieldString);
 		setSearchValue(inputFieldString);
 	};
 
