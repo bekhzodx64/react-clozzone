@@ -1,12 +1,10 @@
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RarityBadge from '../templates/rarity-badge';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import CartContext from '../../store/CartContext';
 
 SwiperCore.use([Navigation]);
 
