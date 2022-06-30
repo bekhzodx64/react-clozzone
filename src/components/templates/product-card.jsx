@@ -10,22 +10,22 @@ import CartContext from '../../store/CartContext';
 
 SwiperCore.use([Navigation]);
 
-const ProductCard = ({ good }) => {
+const ProductCard = ({ item }) => {
 	const navigate = useNavigate();
-	const { displayName, displayType, mainId } = good;
-	const { finalPrice } = good.price;
-	const { id } = good.rarity;
+	const { displayName, displayType, mainId } = item;
+	const { finalPrice } = item.price;
+	const { id } = item.rarity;
 
-	const { addItemToCart } = useContext(CartContext);
+	// const { addItemToCart } = useContext(CartContext);
 
-	const addProductToCart = () => addItemToCart(good);
+	// const addProductToCart = () => addItemToCart(good);
 
 	const onNavigateHandler = () => {
 		navigate(`/${mainId}`);
 	};
 
 	return (
-		<div className='flex w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden'>
+		<div className='flex w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden shadow-sm'>
 			<div className='h-full grow bg-[#EBEBEB]'>
 				<Swiper
 					className='relative h-full select-none'
@@ -33,7 +33,7 @@ const ProductCard = ({ good }) => {
 						prevEl: '.productPrev',
 						nextEl: '.productNext',
 					}}>
-					{good.granted.map((grant, index) => (
+					{item.granted.map((grant, index) => (
 						<SwiperSlide
 							key={`${grant.id}${index}`}
 							className='flex h-full w-full items-center justify-center'>
@@ -46,7 +46,7 @@ const ProductCard = ({ good }) => {
 							</div>
 						</SwiperSlide>
 					))}
-					{good.granted.length > 1 ? (
+					{item.granted.length > 1 ? (
 						<div className='absolute top-[10px] left-[10px] z-10 flex space-x-[5px] text-xl text-white'>
 							<div className='productPrev'>
 								<BsChevronLeft />
@@ -78,7 +78,7 @@ const ProductCard = ({ good }) => {
 				</div>
 				<button
 					type='button'
-					onClick={addProductToCart}
+					// onClick={addProductToCart}
 					className='btn hover:btn-hover'>
 					Добавить в корзину
 				</button>
