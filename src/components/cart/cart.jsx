@@ -1,7 +1,13 @@
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import CartItem from './cart-item';
+import { useSelector } from 'react-redux';
 
 const Cart = ({ showCartHandler }) => {
+	// const cartItems = useSelector((state) => state.cartItem.cartItems);
+	const products = useSelector((state) => state.cart);
+
+	console.log(products);
+
 	return (
 		<div className='fixed inset-0 bg-black/40 z-10 flex flex-col px-2'>
 			<div className='bg-white py-[30px] max-w-4xl w-full m-auto overflow-hidden'>
@@ -23,7 +29,11 @@ const Cart = ({ showCartHandler }) => {
 							<h3>Цена</h3>
 						</div>
 
-						<CartItem />
+						{/* {cartItems.length < 1 ? (
+							<h2 className='text-center'>Вы ничего не добавили</h2>
+						) : (
+							<CartItem />
+						)} */}
 
 						<div className='flex justify-between max-w-xl px-[30px] mx-auto'>
 							<button

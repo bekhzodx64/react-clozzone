@@ -5,22 +5,26 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RarityBadge from '../templates/rarity-badge';
+import { useDispatch } from 'react-redux';
+import addItemToCart from '../../features/cart/cartSlice';
 
 SwiperCore.use([Navigation]);
 
 const ProductCard = ({ item }) => {
+	const dispatch = useDispatch();
+
 	const navigate = useNavigate();
 	const { displayName, displayType, mainId } = item;
 	const { finalPrice } = item.price;
 	const { id } = item.rarity;
 
-	// const { addItemToCart } = useContext(CartContext);
-
-	// const addProductToCart = () => addItemToCart(good);
-
 	const onNavigateHandler = () => {
 		navigate(`/${mainId}`);
 	};
+
+	const handleAddToCart= (item) => {
+		dispatch(addItemToCart(item))
+	}
 
 	return (
 		<div className='flex w-[250px] flex-col md:w-[320px] lg:w-full xl:w-[280px] relative overflow-hidden shadow-sm'>
@@ -74,10 +78,11 @@ const ProductCard = ({ item }) => {
 						<span> руб.</span>
 					</p>
 				</div>
+
 				<button
 					type='button'
-					// onClick={addProductToCart}
-					className='btn hover:btn-hover'>
+					className='btn hover:btn-hover'
+					onClick={() => handleAddToCart(item)}>
 					Добавить в корзину
 				</button>
 			</div>
